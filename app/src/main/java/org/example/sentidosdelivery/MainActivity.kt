@@ -13,6 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottonNavigationView)
+        val navController = findNavController(R.id.fragment)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.menu, R.id.carrito, R.id.perfil))
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        bottomNavigationView.setupWithNavController(navController)
     }
 }
 
