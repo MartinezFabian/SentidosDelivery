@@ -6,7 +6,7 @@
     app:startDestination="@id/menu">
     <fragment
         android:id="@+id/menu"
-        android:name="org.example.sentidosdelivery.Menu"
+        android:name="org.example.sentidosdelivery.ui.Menu"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
     <fragment

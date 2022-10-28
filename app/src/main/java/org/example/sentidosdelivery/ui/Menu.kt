@@ -1,11 +1,12 @@
-package org.example.sentidosdelivery
+package org.example.sentidosdelivery.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import org.example.sentidosdelivery.databinding.FragmentMenuBinding
+import org.example.sentidosdelivery.R
+import org.example.sentidosdelivery.model.ItemMenu
 
 class Menu : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
