@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -9,7 +10,7 @@ android {
     viewBinding.enabled = true
 
     defaultConfig {
-        applicationId "org.example.bottomnavigationview"
+        applicationId "org.example.sentidosdelivery"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1
@@ -46,4 +47,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation platform('com.google.firebase:firebase-bom:31.0.2')
 }
