@@ -33,6 +33,7 @@ class Login : AppCompatActivity() {
             val nombreUsuario = etNombreUsuario.text.toString()
             val password = etPassword.text.toString()
             var usuarioEncontrado = false
+            var usuario: Usuario? = null
 
             if(nombreUsuario.isEmpty() || password.isEmpty()){
 
@@ -58,6 +59,9 @@ class Login : AppCompatActivity() {
                                     if(item.nombre == nombreUsuario && item.password == password && item.rol == "cliente")
                                     {
                                         usuarioEncontrado = true
+
+                                        usuario = item
+
                                         break
                                     }
 
@@ -66,6 +70,7 @@ class Login : AppCompatActivity() {
                             if(usuarioEncontrado)
                             {
                                 val intent = Intent(this@Login, MainActivity::class.java)
+                                intent.putExtra("usuario", usuario)
                                 startActivity(intent)
                                 finish()
                             }

@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import org.example.sentidosdelivery.R
+import org.example.sentidosdelivery.model.Usuario
+import org.w3c.dom.Text
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +31,10 @@ class Perfil : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
+
+
     }
 
     override fun onCreateView(
@@ -35,7 +42,51 @@ class Perfil : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+        val rootView: View = inflater.inflate(R.layout.fragment_perfil, container, false)
+
+
+        val bundle = arguments
+
+        if (bundle != null)
+        {
+            val usuario: Usuario? = bundle!!.getParcelable<Usuario>("usuario")
+
+
+            val tvNombreUsuario = rootView.findViewById<TextView>(R.id.tvNombreUsuario)
+
+            tvNombreUsuario.setText(usuario?.nombre)
+
+            val tvDNI = rootView.findViewById<TextView>(R.id.tvDni)
+
+            tvDNI.setText(usuario?.dni)
+
+            val tvApellido = rootView.findViewById<TextView>(R.id.tvApellido)
+
+            tvApellido.setText(usuario?.apellido)
+
+            val tvCelular = rootView.findViewById<TextView>(R.id.tvCelular)
+
+            tvCelular.setText(usuario?.celular)
+
+            val tvDomicilio = rootView.findViewById<TextView>(R.id.tvDomicilio)
+
+            tvDomicilio.setText(usuario?.domicilio)
+
+            val tvCorreoElectronico = rootView.findViewById<TextView>(R.id.tvCorreoElectronico)
+
+            tvCorreoElectronico.setText(usuario?.email)
+
+        }
+
+
+
+
+
+
+
+
+        return rootView
+
     }
 
     companion object {

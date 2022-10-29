@@ -1,5 +1,9 @@
 package org.example.sentidosdelivery.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Usuario (
     var apellido: String = "",
     var celular: String = "",
@@ -14,4 +18,4 @@ data class Usuario (
     var reservasSinPagar: List<String>? = null,
     var rol: String = ""
 
-        )
+        ) : Parcelable
