@@ -3,13 +3,16 @@
     <item
         android:id="@+id/menu"
         android:icon="@drawable/fastfood_48px"
-        android:title="Menu" />
+        android:title="Menu"
+        android:onClick="onClick"/>
     <item
         android:id="@+id/carrito"
         android:icon="@drawable/shopping_cart_48px"
-        android:title="Carrito" />
+        android:title="Carrito"
+        android:onClick="onClick"/>
     <item
         android:id="@+id/perfil"
         android:icon="@drawable/account_circle_48px"
-        android:title="Perfil" />
+        android:title="Perfil"
+        android:onClick="onClick"/>
 </menu>

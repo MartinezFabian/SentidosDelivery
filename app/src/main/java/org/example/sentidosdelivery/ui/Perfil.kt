@@ -10,31 +10,14 @@ import org.example.sentidosdelivery.R
 import org.example.sentidosdelivery.model.Usuario
 import org.w3c.dom.Text
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Perfil.newInstance] factory method to
- * create an instance of this fragment.
- */
+lateinit var usuario: Usuario
+
 class Perfil : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-
-
-
     }
 
     override fun onCreateView(
@@ -47,65 +30,29 @@ class Perfil : Fragment() {
 
         val bundle = arguments
 
-        if (bundle != null)
-        {
-            val usuario: Usuario? = bundle!!.getParcelable<Usuario>("usuario")
-
-
-            val tvNombreUsuario = rootView.findViewById<TextView>(R.id.tvNombreUsuario)
-
-            tvNombreUsuario.setText(usuario?.nombre)
-
-            val tvDNI = rootView.findViewById<TextView>(R.id.tvDni)
-
-            tvDNI.setText(usuario?.dni)
-
-            val tvApellido = rootView.findViewById<TextView>(R.id.tvApellido)
-
-            tvApellido.setText(usuario?.apellido)
-
-            val tvCelular = rootView.findViewById<TextView>(R.id.tvCelular)
-
-            tvCelular.setText(usuario?.celular)
-
-            val tvDomicilio = rootView.findViewById<TextView>(R.id.tvDomicilio)
-
-            tvDomicilio.setText(usuario?.domicilio)
-
-            val tvCorreoElectronico = rootView.findViewById<TextView>(R.id.tvCorreoElectronico)
-
-            tvCorreoElectronico.setText(usuario?.email)
+        if(bundle != null) {
+            usuario = bundle!!.getParcelable<Usuario>("usuario")!!
 
         }
 
+        val tvNombreUsuario = rootView.findViewById<TextView>(R.id.tvNombreUsuario)
+        tvNombreUsuario.setText(usuario?.nombre)
 
+        val tvDNI = rootView.findViewById<TextView>(R.id.tvDni)
+        tvDNI.setText(usuario?.dni)
 
+        val tvApellido = rootView.findViewById<TextView>(R.id.tvApellido)
+        tvApellido.setText(usuario?.apellido)
 
+        val tvCelular = rootView.findViewById<TextView>(R.id.tvCelular)
+        tvCelular.setText(usuario?.celular)
 
+        val tvDomicilio = rootView.findViewById<TextView>(R.id.tvDomicilio)
+        tvDomicilio.setText(usuario?.domicilio)
 
-
+        val tvCorreoElectronico = rootView.findViewById<TextView>(R.id.tvCorreoElectronico)
+        tvCorreoElectronico.setText(usuario?.email)
 
         return rootView
-
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Perfil.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Perfil().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
