@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -46,8 +47,7 @@ class MainActivity : AppCompatActivity() {
         fragmentCarrito = Carrito();
         fragmentPerfil = Perfil();
 
-        fmanager.beginTransaction().add(R.id.fragment, fragmentMenu).commit()
-
+        fmanager.beginTransaction().add(R.id.fragment, fragmentPerfil).commit()
     }
 
     fun onClick(item: MenuItem) {
