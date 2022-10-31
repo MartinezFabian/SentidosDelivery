@@ -30,8 +30,6 @@ class MainActivity : AppCompatActivity() {
         //Traer objeto usuario desde login y pasarlo a fragment Perfil
         val usuario = intent.getParcelableExtra<Usuario>("usuario")
 
-        Toast.makeText(this, usuario!!.nombre, Toast.LENGTH_SHORT).show()
-
         val fmanager = supportFragmentManager
         val fmanagertrans = fmanager.beginTransaction()
         val fragment = Perfil()

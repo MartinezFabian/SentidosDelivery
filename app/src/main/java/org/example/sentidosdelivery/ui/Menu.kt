@@ -1,6 +1,7 @@
 package org.example.sentidosdelivery.ui
 
 import android.content.ClipData.Item
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -89,6 +90,8 @@ class Menu : Fragment(), MenuAdapterListener {
     }
 
     override fun onBuyMenuClicked(itemMenu: ItemMenu) {
-        Log.e("CLICK", "CLICKKK")
+        val intent = Intent(context, MenuItemDetailActivity::class.java)
+        intent.putExtra("menu", itemMenu)
+        startActivity(intent)
     }
 }
