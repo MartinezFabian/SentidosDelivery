@@ -1,9 +1,9 @@
 package org.example.sentidosdelivery.model
 
 data class ItemMenu(
-    val categoria: String = "",
-    val id: Int = 0,
-    val ingredientes: String = "",
-    val nombre: String,
-    val precio: Double = 0.0
+    var categoria: String = "",
+    var id: Int = 0,
+    var ingredientes: String = "",
+    var nombre: String = "",
+    var precio: Int = 0,
     )
