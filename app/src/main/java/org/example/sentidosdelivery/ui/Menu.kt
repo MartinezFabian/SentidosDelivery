@@ -1,5 +1,6 @@
 package org.example.sentidosdelivery.ui
 
+import android.annotation.SuppressLint
 import android.content.ClipData.Item
 import android.content.Intent
 import android.os.Bundle
@@ -55,7 +56,7 @@ class Menu : Fragment(), MenuAdapterListener {
         val databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://restaurantesentidos-190d3-default-rtdb.firebaseio.com/")
 
         databaseReference.child("menu").addListenerForSingleValueEvent(object : ValueEventListener{
-
+            
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 if(snapshot.exists()) {
