@@ -38,18 +38,28 @@ class Carrito : Fragment() {
 
         val rootView: View = inflater.inflate(R.layout.fragment_carrito, container, false)
 
+        //RecyclerView Listado Carrito
         carritoRecyclerView = rootView.findViewById(R.id.recyclerCarrito)
         carritoRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         carritoRecyclerView.setHasFixedSize(true)
         carritoRecyclerView.adapter = carritoAdapter
 
-        //lista_carrito = arrayListOf<ItemMenu>()
-
         menuItemDetailActivity.cargarACarrito()
 
         carritoAdapter.listaCarrito = lista_carrito
         carritoAdapter.notifyDataSetChanged()
-        
+
+        //Calcular Precio Total
+        val tvPrecioTotal: TextView = rootView.findViewById(R.id.tvPrecioTotal)
+        var precioTotal: Int = 0
+
+        for (item in lista_carrito)
+        {
+            precioTotal += item.precio
+        }
+
+        tvPrecioTotal.setText("$"+precioTotal.toString())
+
         return rootView
     }
 
