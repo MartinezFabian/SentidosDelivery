@@ -1,5 +1,6 @@
 package org.example.sentidosdelivery.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -77,6 +78,27 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
         radioGroup = rootView.findViewById(R.id.radio)
 
         radioGroup?.setOnCheckedChangeListener(this)
+
+        //Boton Confirmar Pedido
+
+        val btnConfirmarPedido = rootView.findViewById<Button>(R.id.btnConfirmarPedido)
+
+        btnConfirmarPedido.setOnClickListener{
+
+            if(lista_carrito.isEmpty())
+            {
+                Toast.makeText(requireContext(), "¡Su carrito está vacío!", Toast.LENGTH_SHORT).show()
+
+            }else if(rbEnvioAdomicilio!!.isChecked || rbRetirarEnRestaurante!!.isChecked) {
+
+                val intent = Intent(context, PagoActivity::class.java)
+                //intent.putExtra()
+                startActivity(intent)
+
+            } else{
+                Toast.makeText(requireContext(), "Seleccione si quiere retirar en el restaurante o envío a domicilio", Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
         return rootView
