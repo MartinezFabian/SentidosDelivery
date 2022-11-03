@@ -17,11 +17,13 @@ import org.example.sentidosdelivery.R
 import org.example.sentidosdelivery.adapter.CarritoAdapter
 import org.example.sentidosdelivery.model.ItemMenu
 
+public var lista_carrito: ArrayList<ItemMenu> = arrayListOf<ItemMenu>()
+
 class Carrito : Fragment() {
 
     private lateinit var carritoRecyclerView: RecyclerView
-    private lateinit var lista_carrito: ArrayList<ItemMenu>
     private val carritoAdapter: CarritoAdapter = CarritoAdapter()
+    private val menuItemDetailActivity:MenuItemDetailActivity = MenuItemDetailActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,9 @@ class Carrito : Fragment() {
         carritoRecyclerView.setHasFixedSize(true)
         carritoRecyclerView.adapter = carritoAdapter
 
-        lista_carrito = arrayListOf<ItemMenu>()
+        //lista_carrito = arrayListOf<ItemMenu>()
+
+        menuItemDetailActivity.cargarACarrito()
 
         carritoAdapter.listaCarrito = lista_carrito
         carritoAdapter.notifyDataSetChanged()

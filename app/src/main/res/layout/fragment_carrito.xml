@@ -39,7 +39,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginBottom="4dp"
+                tools:listitem="@layout/item_carrito"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

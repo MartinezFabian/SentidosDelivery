@@ -24,7 +24,7 @@ class CarritoAdapter() : RecyclerView.Adapter<CarritoAdapter.MyViewHolder>() {
         val itemActual = listaCarrito[position]
 
         holder.tvNombreMenu.text = itemActual.nombre
-        holder.tvPrecioMenu.text = itemActual.precio.toString()
+        holder.tvPrecioMenu.text =  "$" + itemActual.precio.toString()
     }
 
     override fun getItemCount(): Int {
