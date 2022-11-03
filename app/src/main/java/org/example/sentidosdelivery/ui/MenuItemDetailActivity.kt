@@ -15,6 +15,7 @@ import org.example.sentidosdelivery.model.Usuario
 class MenuItemDetailActivity : AppCompatActivity() {
 
     private var menu: ItemMenu? = null
+    private var cantidadPedido : Int = 1
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +35,6 @@ class MenuItemDetailActivity : AppCompatActivity() {
         val btnMas = findViewById<ImageView>(R.id.btnMas)
         val btnMenos = findViewById<ImageView>(R.id.btnMenos)
         val tvCantidad = findViewById<TextView>(R.id.tvCantidadDetailActivity)
-
-        var cantidadPedido = 1
 
         tvCantidad.text = cantidadPedido.toString()
 
@@ -68,7 +67,11 @@ class MenuItemDetailActivity : AppCompatActivity() {
     fun cargarACarrito()
     {
         if(menu != null){
-            lista_carrito.add(menu!!)
+
+            for(i in 1..cantidadPedido)
+            {
+                lista_carrito.add(menu!!)
+            }
             Toast.makeText(this, "Agregado al carrito", Toast.LENGTH_SHORT).show()
         }
 
