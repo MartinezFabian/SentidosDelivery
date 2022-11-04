@@ -23,6 +23,16 @@
             android:orientation="vertical">
 
 
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text="Datos de su tarjeta de Débito" />
+
             <EditText
                 android:id="@+id/etNumTarjeta"
                 android:layout_width="match_parent"
@@ -93,7 +103,8 @@
                 android:layout_marginBottom="16dp"
                 android:ems="10"
                 android:hint="Dirección de envío"
-                android:inputType="text" />
+                android:inputType="text"
+                tools:visibility="visible" />
         </LinearLayout>
     </ScrollView>
 

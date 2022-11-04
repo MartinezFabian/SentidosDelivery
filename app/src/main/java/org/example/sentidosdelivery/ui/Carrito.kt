@@ -34,6 +34,8 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
     var tvPrecioDelivery: TextView? = null
     var precioDelivery = 0.0
 
+    var envioAdomicilio = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -92,7 +94,7 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
             }else if(rbEnvioAdomicilio!!.isChecked || rbRetirarEnRestaurante!!.isChecked) {
 
                 val intent = Intent(context, PagoActivity::class.java)
-                //intent.putExtra()
+                intent.putExtra("ENVIO_DOMICILIO", envioAdomicilio)
                 startActivity(intent)
 
             } else{
@@ -108,12 +110,15 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
         when(checkedId){
             rbRetirarEnRestaurante?.id -> {
                 tvPrecioDelivery!!.setText("$0.0")
+                envioAdomicilio = false
             }
 
             rbEnvioAdomicilio?.id -> {
                 precioDelivery = precioTotal * 0.01
 
                 tvPrecioDelivery!!.setText("$ %.2f".format(precioDelivery))
+
+                envioAdomicilio = true
             }
         }
     }
