@@ -10,7 +10,9 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
@@ -48,6 +50,17 @@ class Menu : Fragment(), MenuAdapterListener {
         lista_menu = arrayListOf<ItemMenu>()
 
         getMenuData()
+
+        //Buscar menu especifico en el listado de menus
+
+        val etFiltro = rootView.findViewById<EditText>(R.id.etFiltro)
+
+        etFiltro.addTextChangedListener { menuFiltro ->
+            val menuFiltrado = lista_menu.filter {
+                menu -> menu.nombre.lowercase().contains(menuFiltro.toString())
+            }
+            menuAdapter.updateMenus(menuFiltrado as ArrayList<ItemMenu>)
+        }
 
         return rootView;
     }

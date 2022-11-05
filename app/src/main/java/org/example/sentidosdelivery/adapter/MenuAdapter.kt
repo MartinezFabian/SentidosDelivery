@@ -47,8 +47,10 @@ class MenuAdapter(private val menuAdapterListener: MenuAdapterListener) : Recycl
                 menuAdapterListener.onBuyMenuClicked(itemMenu)
             }
         }
+    }
 
-
-
+    fun updateMenus(listaMenu: ArrayList<ItemMenu>){
+        this.listaMenu = listaMenu
+        notifyDataSetChanged()
     }
 }
