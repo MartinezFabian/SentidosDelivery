@@ -170,6 +170,10 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
         }else{
             tvPrecioTotal!!.setText("$0")
         }
+
+        precioDelivery = precioTotal * 0.01
+
+        tvPrecioDelivery!!.setText("$ %.2f".format(precioDelivery))
     }
 
 }
