@@ -11,7 +11,7 @@ import org.example.sentidosdelivery.model.Usuario
 import org.w3c.dom.Text
 
 
-lateinit var usuario: Usuario
+var usuario: Usuario? = null
 
 class Perfil : Fragment() {
 
@@ -31,7 +31,7 @@ class Perfil : Fragment() {
         val bundle = arguments
 
         if(bundle != null) {
-            usuario = bundle!!.getParcelable<Usuario>("usuario")!!
+            usuario = bundle.getParcelable<Usuario?>("usuario")
 
         }
 

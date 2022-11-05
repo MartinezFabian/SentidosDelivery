@@ -1,12 +1,15 @@
 package org.example.sentidosdelivery.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import org.example.sentidosdelivery.R
+
 
 class PagoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,14 +45,24 @@ class PagoActivity : AppCompatActivity() {
                 if(envioAdomicilio == true) {
                     if(etDireccionEnvio.text.isNotEmpty()){
                         Toast.makeText(this,
-                            "¡Pago realizado con éxito! Se envió la factura a su correo electrónico",
+                            "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
                             Toast.LENGTH_LONG).show()
+
+                        lista_carrito.clear()
+
+                        super.finish()
+
                     }
 
                 }else{
                     Toast.makeText(this,
-                        "¡Pago realizado con éxito! Se envió la factura a su correo electrónico",
+                        "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
                         Toast.LENGTH_LONG).show()
+
+                    lista_carrito.clear()
+
+                    super.finish()
+
                 }
 
             }else{
