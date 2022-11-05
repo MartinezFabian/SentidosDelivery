@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import org.example.sentidosdelivery.R
 import org.example.sentidosdelivery.adapter.CarritoAdapter
 import org.example.sentidosdelivery.model.ItemMenu
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 public var lista_carrito: ArrayList<ItemMenu> = arrayListOf<ItemMenu>()
 
@@ -89,7 +91,17 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
 
             if(lista_carrito.isEmpty())
             {
-                Toast.makeText(requireContext(), "¡Su carrito está vacío!", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireContext(), "¡Su carrito está vacío!", Toast.LENGTH_SHORT).show()
+
+                MotionToast.createToast(
+                    requireActivity(),
+                    "¡Su carrito está vacío!",
+                    "Agregue productos al carrito para realizar un pedido",
+                    MotionToastStyle.INFO,
+                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.SHORT_DURATION,
+                    null
+                )
 
             }else if(rbEnvioAdomicilio!!.isChecked || rbRetirarEnRestaurante!!.isChecked) {
 
@@ -98,7 +110,18 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
                 startActivity(intent)
 
             } else{
-                Toast.makeText(requireContext(), "Seleccione si quiere retirar en el restaurante o envío a domicilio", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireContext(), "Seleccione si quiere retirar en el restaurante o envío a domicilio", Toast.LENGTH_SHORT).show()
+
+                MotionToast.createToast(
+                    requireActivity(),
+                    "Elija una de las opciones",
+                    "Seleccione envío a domicilio o retirar en restaurante",
+                    MotionToastStyle.INFO,
+                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.SHORT_DURATION,
+                    null
+                )
+
             }
         }
 

@@ -11,6 +11,8 @@ import android.widget.Toast
 import org.example.sentidosdelivery.R
 import org.example.sentidosdelivery.model.ItemMenu
 import org.example.sentidosdelivery.model.Usuario
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 class MenuItemDetailActivity : AppCompatActivity() {
 
@@ -72,7 +74,17 @@ class MenuItemDetailActivity : AppCompatActivity() {
             {
                 lista_carrito.add(menu!!)
             }
-            Toast.makeText(this, "Agregado al carrito", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "Agregado al carrito", Toast.LENGTH_SHORT).show()
+
+            MotionToast.createToast(
+                this,
+                "Agregado al carrito",
+                "Se agrego al carrito con exito",
+                MotionToastStyle.SUCCESS,
+                MotionToast.GRAVITY_CENTER,
+                MotionToast.SHORT_DURATION,
+                null
+            )
         }
 
     }

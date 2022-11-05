@@ -14,6 +14,8 @@ import com.google.firebase.database.ValueEventListener
 import org.example.sentidosdelivery.R
 import org.example.sentidosdelivery.model.Usuario
 import org.jetbrains.annotations.NotNull
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 class Login : AppCompatActivity() {
 
@@ -37,7 +39,17 @@ class Login : AppCompatActivity() {
 
             if(nombreUsuario.isEmpty() || password.isEmpty()){
 
-                Toast.makeText(this, "Por favor ingrese su usuario y contraseña", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Por favor ingrese su usuario y contraseña", Toast.LENGTH_SHORT).show()
+
+                MotionToast.createToast(
+                    this@Login,
+                    "Error en el inicio de sesión",
+                    "Ingrese su usuario y contraseña",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.SHORT_DURATION,
+                    null
+                )
 
             }else{
                 databaseReference.child("usuarios").addListenerForSingleValueEvent(object: ValueEventListener{
@@ -76,7 +88,17 @@ class Login : AppCompatActivity() {
                             }
                             else
                             {
-                                Toast.makeText(this@Login, "Usuario y/o Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this@Login, "Usuario y/o Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+
+                                MotionToast.createToast(
+                                    this@Login,
+                                    "Error en el inicio de sesión",
+                                    "Usuario y/o Contraseña incorrecta",
+                                    MotionToastStyle.ERROR,
+                                    MotionToast.GRAVITY_CENTER,
+                                    MotionToast.SHORT_DURATION,
+                                    null
+                                )
                             }
                     }
 

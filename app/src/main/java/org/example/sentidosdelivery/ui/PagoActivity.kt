@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import org.example.sentidosdelivery.R
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 
 class PagoActivity : AppCompatActivity() {
@@ -44,9 +46,20 @@ class PagoActivity : AppCompatActivity() {
 
                 if(envioAdomicilio == true) {
                     if(etDireccionEnvio.text.isNotEmpty()){
+                        /*
                         Toast.makeText(this,
                             "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
-                            Toast.LENGTH_LONG).show()
+                            Toast.LENGTH_LONG).show()*/
+
+                        MotionToast.createToast(
+                            this,
+                            "Pago Realizado con Éxito",
+                            "Factura enviada a " + usuario!!.email,
+                            MotionToastStyle.SUCCESS,
+                            MotionToast.GRAVITY_CENTER,
+                            MotionToast.LONG_DURATION,
+                            null
+                        )
 
                         lista_carrito.clear()
 
@@ -55,9 +68,20 @@ class PagoActivity : AppCompatActivity() {
                     }
 
                 }else{
+                    /*
                     Toast.makeText(this,
                         "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
-                        Toast.LENGTH_LONG).show()
+                        Toast.LENGTH_LONG).show() */
+
+                    MotionToast.createToast(
+                        this,
+                        "Pago Realizado con Éxito",
+                        "Factura enviada a " + usuario!!.email,
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_CENTER,
+                        MotionToast.LONG_DURATION,
+                        null
+                    )
 
                     lista_carrito.clear()
 
@@ -66,9 +90,19 @@ class PagoActivity : AppCompatActivity() {
                 }
 
             }else{
-                Toast.makeText(this,
+                /*Toast.makeText(this,
                     "Complete todos los datos de su tarjeta para poder completar el pago",
-                    Toast.LENGTH_LONG).show()
+                    Toast.LENGTH_LONG).show() */
+
+                MotionToast.createToast(
+                    this,
+                    "Complete todos los campos",
+                    "Complete todos los datos de su tarjeta",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.SHORT_DURATION,
+                    null
+                )
             }
 
         }
