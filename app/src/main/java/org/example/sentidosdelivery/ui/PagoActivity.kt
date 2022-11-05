@@ -51,12 +51,12 @@ class PagoActivity : AppCompatActivity() {
                             "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
                             Toast.LENGTH_LONG).show()*/
 
-                        MotionToast.createToast(
+                        MotionToast.createColorToast(
                             this,
                             "Pago Realizado con Éxito",
                             "Factura enviada a " + usuario!!.email,
                             MotionToastStyle.SUCCESS,
-                            MotionToast.GRAVITY_CENTER,
+                            MotionToast.GRAVITY_BOTTOM,
                             MotionToast.LONG_DURATION,
                             null
                         )
@@ -73,12 +73,12 @@ class PagoActivity : AppCompatActivity() {
                         "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
                         Toast.LENGTH_LONG).show() */
 
-                    MotionToast.createToast(
+                    MotionToast.createColorToast(
                         this,
                         "Pago Realizado con Éxito",
                         "Factura enviada a " + usuario!!.email,
                         MotionToastStyle.SUCCESS,
-                        MotionToast.GRAVITY_CENTER,
+                        MotionToast.GRAVITY_BOTTOM,
                         MotionToast.LONG_DURATION,
                         null
                     )
@@ -94,12 +94,12 @@ class PagoActivity : AppCompatActivity() {
                     "Complete todos los datos de su tarjeta para poder completar el pago",
                     Toast.LENGTH_LONG).show() */
 
-                MotionToast.createToast(
+                MotionToast.createColorToast(
                     this,
                     "Complete todos los campos",
                     "Complete todos los datos de su tarjeta",
                     MotionToastStyle.ERROR,
-                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.GRAVITY_BOTTOM,
                     MotionToast.SHORT_DURATION,
                     null
                 )

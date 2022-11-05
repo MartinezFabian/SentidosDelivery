@@ -93,12 +93,12 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
             {
                 //Toast.makeText(requireContext(), "¡Su carrito está vacío!", Toast.LENGTH_SHORT).show()
 
-                MotionToast.createToast(
+                MotionToast.createColorToast(
                     requireActivity(),
                     "¡Su carrito está vacío!",
                     "Agregue productos al carrito para realizar un pedido",
                     MotionToastStyle.INFO,
-                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.GRAVITY_BOTTOM,
                     MotionToast.SHORT_DURATION,
                     null
                 )
@@ -112,12 +112,12 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
             } else{
                 //Toast.makeText(requireContext(), "Seleccione si quiere retirar en el restaurante o envío a domicilio", Toast.LENGTH_SHORT).show()
 
-                MotionToast.createToast(
+                MotionToast.createColorToast(
                     requireActivity(),
                     "Elija una de las opciones",
                     "Seleccione envío a domicilio o retirar en restaurante",
                     MotionToastStyle.INFO,
-                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.GRAVITY_BOTTOM,
                     MotionToast.SHORT_DURATION,
                     null
                 )

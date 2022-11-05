@@ -41,12 +41,12 @@ class Login : AppCompatActivity() {
 
                 //Toast.makeText(this, "Por favor ingrese su usuario y contraseña", Toast.LENGTH_SHORT).show()
 
-                MotionToast.createToast(
+                MotionToast.createColorToast(
                     this@Login,
                     "Error en el inicio de sesión",
                     "Ingrese su usuario y contraseña",
                     MotionToastStyle.ERROR,
-                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.GRAVITY_BOTTOM,
                     MotionToast.SHORT_DURATION,
                     null
                 )
@@ -90,12 +90,12 @@ class Login : AppCompatActivity() {
                             {
                                 //Toast.makeText(this@Login, "Usuario y/o Contraseña incorrecta", Toast.LENGTH_SHORT).show()
 
-                                MotionToast.createToast(
+                                MotionToast.createColorToast(
                                     this@Login,
                                     "Error en el inicio de sesión",
                                     "Usuario y/o Contraseña incorrecta",
                                     MotionToastStyle.ERROR,
-                                    MotionToast.GRAVITY_CENTER,
+                                    MotionToast.GRAVITY_BOTTOM,
                                     MotionToast.SHORT_DURATION,
                                     null
                                 )

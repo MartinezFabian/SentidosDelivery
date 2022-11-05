@@ -76,12 +76,12 @@ class MenuItemDetailActivity : AppCompatActivity() {
             }
             //Toast.makeText(this, "Agregado al carrito", Toast.LENGTH_SHORT).show()
 
-            MotionToast.createToast(
+            MotionToast.createColorToast(
                 this,
                 "Agregado al carrito",
                 "Se agrego al carrito con exito",
                 MotionToastStyle.SUCCESS,
-                MotionToast.GRAVITY_CENTER,
+                MotionToast.GRAVITY_BOTTOM,
                 MotionToast.SHORT_DURATION,
                 null
             )
