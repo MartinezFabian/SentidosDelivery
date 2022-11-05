@@ -19,12 +19,13 @@ import org.example.sentidosdelivery.model.ItemMenu
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 
-public var lista_carrito: ArrayList<ItemMenu> = arrayListOf<ItemMenu>()
+ var lista_carrito: ArrayList<ItemMenu> = arrayListOf<ItemMenu>()
+ var carritoAdapter: CarritoAdapter? = null
 
 class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
 
     private lateinit var carritoRecyclerView: RecyclerView
-    private val carritoAdapter: CarritoAdapter = CarritoAdapter()
+
     private val menuItemDetailActivity:MenuItemDetailActivity = MenuItemDetailActivity()
 
     var tvPrecioTotal: TextView? = null
@@ -51,6 +52,10 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
         val rootView: View = inflater.inflate(R.layout.fragment_carrito, container, false)
 
         //RecyclerView Listado Carrito
+        carritoAdapter = CarritoAdapter(
+            itemCarritoAdapterListener = {position -> onDeleteitemCarrito(position)}
+        )
+
         carritoRecyclerView = rootView.findViewById(R.id.recyclerCarrito)
         carritoRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         carritoRecyclerView.setHasFixedSize(true)
@@ -58,8 +63,9 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
 
         menuItemDetailActivity.cargarACarrito()
 
-        carritoAdapter.listaCarrito = lista_carrito
-        carritoAdapter.notifyDataSetChanged()
+        carritoAdapter!!.listaCarrito = lista_carrito
+        carritoAdapter!!.notifyDataSetChanged()
+
 
         //Calcular Precio Total
         tvPrecioTotal = rootView.findViewById(R.id.tvPrecioTotal)
@@ -143,6 +149,26 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
 
                 envioAdomicilio = true
             }
+        }
+    }
+
+    private fun onDeleteitemCarrito(position: Int){
+        lista_carrito.removeAt(position)
+        carritoAdapter!!.notifyItemRemoved(position)
+
+        precioTotal = 0
+
+        for (item in lista_carrito)
+        {
+            precioTotal += item.precio
+        }
+
+        if(lista_carrito.isNotEmpty())
+        {
+            tvPrecioTotal!!.setText("$"+precioTotal.toString())
+
+        }else{
+            tvPrecioTotal!!.setText("$0")
         }
     }
 

@@ -63,6 +63,8 @@ class PagoActivity : AppCompatActivity() {
 
                         lista_carrito.clear()
 
+                        carritoAdapter!!.notifyDataSetChanged()
+
                         super.finish()
 
                     }
@@ -84,6 +86,8 @@ class PagoActivity : AppCompatActivity() {
                     )
 
                     lista_carrito.clear()
+
+                    carritoAdapter!!.notifyDataSetChanged()
 
                     super.finish()
 
