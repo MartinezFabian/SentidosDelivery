@@ -24,6 +24,13 @@ class MenuItemDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_item_detail)
 
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
+
+        btnBack.setOnClickListener{
+            onBackPressed()
+        }
+
+
         menu = intent.getParcelableExtra<ItemMenu>("menu")!!
 
         val tvNombreMenu = findViewById<TextView>(R.id.tvNombreMenuDetailActivity)

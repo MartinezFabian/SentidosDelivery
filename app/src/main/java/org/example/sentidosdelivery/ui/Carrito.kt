@@ -171,9 +171,11 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
             tvPrecioTotal!!.setText("$0")
         }
 
-        precioDelivery = precioTotal * 0.01
+        if(rbEnvioAdomicilio!!.isChecked){
+            precioDelivery = precioTotal * 0.01
 
-        tvPrecioDelivery!!.setText("$ %.2f".format(precioDelivery))
+            tvPrecioDelivery!!.setText("$ %.2f".format(precioDelivery))
+        }
     }
 
 }
