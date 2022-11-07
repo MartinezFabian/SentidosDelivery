@@ -67,7 +67,7 @@
                 android:layout_marginBottom="16dp"
                 android:ems="10"
                 android:hint="Fecha de vencimiento"
-                android:inputType="date" />
+                android:inputType="textShortMessage" />
 
             <EditText
                 android:id="@+id/etCodSeguridad"

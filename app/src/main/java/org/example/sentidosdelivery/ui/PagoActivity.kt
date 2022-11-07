@@ -8,12 +8,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
 import org.example.sentidosdelivery.R
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 
 
 class PagoActivity : AppCompatActivity() {
+    private lateinit var database: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pago)
@@ -46,6 +49,7 @@ class PagoActivity : AppCompatActivity() {
 
                 if(envioAdomicilio == true) {
                     if(etDireccionEnvio.text.isNotEmpty()){
+
                         /*
                         Toast.makeText(this,
                             "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
