@@ -1,17 +1,19 @@
 package org.example.sentidosdelivery.ui
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import org.example.sentidosdelivery.R
+import org.example.sentidosdelivery.model.Pedido
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class PagoActivity : AppCompatActivity() {
@@ -29,6 +31,7 @@ class PagoActivity : AppCompatActivity() {
         val etDireccionEnvio = findViewById<EditText>(R.id.etDireccionEnvio)
 
         val envioAdomicilio = intent.getBooleanExtra("ENVIO_DOMICILIO", false)
+        val pedido = intent.getParcelableExtra<Pedido>("PEDIDO")
 
         if(envioAdomicilio == true){
             etDireccionEnvio.visibility = View.VISIBLE
@@ -47,14 +50,39 @@ class PagoActivity : AppCompatActivity() {
                     etCodSeguridad.text.isNotEmpty() &&
                     etDNI.text.isNotEmpty()){
 
+                TimeZone.setDefault(TimeZone.getTimeZone("GMT-3"));
+                val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
+                val currentDateandTime: String = simpleDateFormat.format(Date())
+
                 if(envioAdomicilio == true) {
                     if(etDireccionEnvio.text.isNotEmpty()){
 
-                        /*
-                        Toast.makeText(this,
-                            "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
-                            Toast.LENGTH_LONG).show()*/
+                        pedido!!.direccion = etDireccionEnvio.text.toString()
 
+                        database = FirebaseDatabase.getInstance().getReference("PedidosApp")
+                        database.child(currentDateandTime).setValue(pedido).addOnSuccessListener {
+                            MotionToast.createColorToast(
+                                this,
+                                "Pago Realizado con Éxito",
+                                "Factura enviada a " + usuario!!.email,
+                                MotionToastStyle.SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                null
+                            )
+
+                            lista_carrito.clear()
+                            carritoAdapter!!.notifyDataSetChanged()
+                        }
+
+                        super.finish()
+
+                    }
+
+                }else{
+
+                    database = FirebaseDatabase.getInstance().getReference("PedidosApp")
+                    database.child(currentDateandTime).setValue(pedido).addOnSuccessListener {
                         MotionToast.createColorToast(
                             this,
                             "Pago Realizado con Éxito",
@@ -66,32 +94,8 @@ class PagoActivity : AppCompatActivity() {
                         )
 
                         lista_carrito.clear()
-
                         carritoAdapter!!.notifyDataSetChanged()
-
-                        super.finish()
-
                     }
-
-                }else{
-                    /*
-                    Toast.makeText(this,
-                        "¡Pago realizado con éxito! Se envió la factura a "+ usuario!!.email,
-                        Toast.LENGTH_LONG).show() */
-
-                    MotionToast.createColorToast(
-                        this,
-                        "Pago Realizado con Éxito",
-                        "Factura enviada a " + usuario!!.email,
-                        MotionToastStyle.SUCCESS,
-                        MotionToast.GRAVITY_BOTTOM,
-                        MotionToast.LONG_DURATION,
-                        null
-                    )
-
-                    lista_carrito.clear()
-
-                    carritoAdapter!!.notifyDataSetChanged()
 
                     super.finish()
 

@@ -10,12 +10,12 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.example.sentidosdelivery.R
 import org.example.sentidosdelivery.adapter.CarritoAdapter
 import org.example.sentidosdelivery.model.ItemMenu
+import org.example.sentidosdelivery.model.Pedido
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 
@@ -111,8 +111,23 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
 
             }else if(rbEnvioAdomicilio!!.isChecked || rbRetirarEnRestaurante!!.isChecked) {
 
+                var productos: String = ""
+                val pedido: Pedido;
+
+                //Se pasa a string el pedido
+                for (item in lista_carrito){
+                    productos = productos + item.nombre + ", "
+                }
+
+                if(rbEnvioAdomicilio!!.isChecked){
+                    pedido = Pedido(usuario!!.nombre, productos, precioTotal, precioDelivery, "")
+                }else{
+                    pedido = Pedido(usuario!!.nombre, productos, precioTotal, 0.0, "")
+                }
+
                 val intent = Intent(context, PagoActivity::class.java)
                 intent.putExtra("ENVIO_DOMICILIO", envioAdomicilio)
+                intent.putExtra("PEDIDO", pedido)
                 startActivity(intent)
 
             } else{
