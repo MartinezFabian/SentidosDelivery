@@ -13,6 +13,8 @@ import org.example.sentidosdelivery.model.ItemMenu
 import org.example.sentidosdelivery.model.Usuario
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MenuItemDetailActivity : AppCompatActivity() {
 
@@ -75,23 +77,50 @@ class MenuItemDetailActivity : AppCompatActivity() {
 
     fun cargarACarrito()
     {
-        if(menu != null){
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT-3"));
+        val simpleDateFormat = SimpleDateFormat("HH")
+        val currentDateandTime: String = simpleDateFormat.format(Date())
 
-            for(i in 1..cantidadPedido)
-            {
-                lista_carrito.add(menu!!)
-            }
-            //Toast.makeText(this, "Agregado al carrito", Toast.LENGTH_SHORT).show()
+        if(currentDateandTime.equals("23") ||
+            currentDateandTime.equals("00") ||
+            currentDateandTime.equals("01") ||
+            currentDateandTime.equals("02") ||
+            currentDateandTime.equals("03") ||
+            currentDateandTime.equals("04") ||
+            currentDateandTime.equals("05") ||
+            currentDateandTime.equals("06") ||
+            currentDateandTime.equals("07") ||
+            currentDateandTime.equals("08") ){
 
             MotionToast.createColorToast(
                 this,
-                "Agregado al carrito",
-                "Se agrego al carrito con exito",
-                MotionToastStyle.SUCCESS,
+                "Servicio no disponible",
+                "No se pueden hacer pedidos despues de las 23 horas",
+                MotionToastStyle.INFO,
                 MotionToast.GRAVITY_BOTTOM,
-                MotionToast.SHORT_DURATION,
+                MotionToast.LONG_DURATION,
                 null
             )
+
+        }else{
+            if(menu != null){
+
+                for(i in 1..cantidadPedido)
+                {
+                    lista_carrito.add(menu!!)
+                }
+                //Toast.makeText(this, "Agregado al carrito", Toast.LENGTH_SHORT).show()
+
+                MotionToast.createColorToast(
+                    this,
+                    "Agregado al carrito",
+                    "Se agrego al carrito con exito",
+                    MotionToastStyle.SUCCESS,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.SHORT_DURATION,
+                    null
+                )
+            }
         }
 
     }

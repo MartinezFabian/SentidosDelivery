@@ -64,7 +64,7 @@ class PagoActivity : AppCompatActivity() {
                             MotionToast.createColorToast(
                                 this,
                                 "Pago Realizado con Éxito",
-                                "Factura enviada a " + usuario!!.email,
+                                "Ticket enviado a " + usuario!!.email,
                                 MotionToastStyle.SUCCESS,
                                 MotionToast.GRAVITY_BOTTOM,
                                 MotionToast.LONG_DURATION,
@@ -86,7 +86,7 @@ class PagoActivity : AppCompatActivity() {
                         MotionToast.createColorToast(
                             this,
                             "Pago Realizado con Éxito",
-                            "Factura enviada a " + usuario!!.email,
+                            "Ticket enviado a " + usuario!!.email,
                             MotionToastStyle.SUCCESS,
                             MotionToast.GRAVITY_BOTTOM,
                             MotionToast.LONG_DURATION,

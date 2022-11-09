@@ -61,7 +61,7 @@ class Carrito : Fragment(), RadioGroup.OnCheckedChangeListener {
         carritoRecyclerView.setHasFixedSize(true)
         carritoRecyclerView.adapter = carritoAdapter
 
-        menuItemDetailActivity.cargarACarrito()
+        //menuItemDetailActivity.cargarACarrito()
 
         carritoAdapter!!.listaCarrito = lista_carrito
         carritoAdapter!!.notifyDataSetChanged()
